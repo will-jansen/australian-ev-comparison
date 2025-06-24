@@ -34,7 +34,7 @@ function createSummaryCards() {
     const brandInfo = {
         tesla: { name: 'Tesla Model Y RWD', color: '#ef4444', logo: 'TESLA' },
         byd: { name: 'BYD Sealion 7 Premium', color: '#22c55e', logo: 'BYD' },
-        polestar: { name: 'Polestar 2 Long Range', color: '#3b82f6', logo: '⭐' },
+        polestar: { name: 'Polestar 2 Long Range', color: '#3b82f6', logo: 'Polestar' },
         kia: { name: 'Kia EV5 Air Long Range', color: '#f59e0b', logo: 'KIA' }
     };
     
@@ -48,7 +48,7 @@ function createSummaryCards() {
         card.className = `summary-card ${brand}-card`;
         
         const isWinner = brand === winner;
-        const trophy = isWinner ? ' 🏆' : '';
+        const trophy = isWinner ? ' (Overall Leader)' : '';
         
         card.innerHTML = `
             <h3>
@@ -61,9 +61,9 @@ function createSummaryCards() {
                 ${counts[brand].total}
             </div>
             <div class="description">
-                🏆 Best Value: ${counts[brand].bestValue} categories<br>
-                👑 Highest Spec: ${counts[brand].highest} categories
-                ${isWinner ? '<br><strong>Overall Leader!</strong>' : ''}
+                Best Value: ${counts[brand].bestValue} categories<br>
+                Highest Spec: ${counts[brand].highest} categories
+                ${isWinner ? '<br><strong>Overall Leader</strong>' : ''}
             </div>
         `;
         
@@ -95,7 +95,7 @@ function downloadCSV() {
             let cellData = cols[j].innerText || cols[j].textContent;
             
             // Clean up the data - remove emojis and extra whitespace
-            cellData = cellData.replace(/[🏆👑📊🖨️💰⚡🔋📏📱🛞🛡️🛋️🔧]/g, '').trim();
+            cellData = cellData.replace(/[\ud83c\udfc6\ud83d\udc51\ud83d\udcca\ud83d\udda8\ufe0f\ud83d\udcb0\u26a1\ud83d\udd0b\ud83d\udccf\ud83d\udcf1\ud83d\udede\ud83d\udee1\ufe0f\ud83d\udecb\ufe0f\ud83d\udd27]/g, '').trim();
             cellData = cellData.replace(/\s+/g, ' '); // Replace multiple spaces with single space
             
             // Escape quotes
