@@ -389,14 +389,14 @@ table {
 
 /* Table Headers */
 th {
-    background: linear-gradient(135deg, var(--secondary-gray-dark), var(--text-primary));
+    background: linear-gradient(135deg, var(--primary-blue), var(--primary-blue-dark));
     color: white;
     padding: 1.5rem 1rem;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 0.875rem;
     letter-spacing: 0.025em;
-    border-bottom: 3px solid var(--secondary-gray);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
 }
 
@@ -406,6 +406,7 @@ th {
     position: sticky;
     left: 0;
     z-index: 10;
+    background: linear-gradient(135deg, var(--secondary-gray-dark), var(--text-primary));
 }
 
 .brand-header {
@@ -419,45 +420,22 @@ th {
     width: 50px;
     height: 50px;
     border-radius: 12px;
-    background: white;
+    background: rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: 900;
+    font-weight: 700;
     font-size: 14px;
-    box-shadow: var(--shadow-md);
-    border: 2px solid var(--background-tertiary);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
 }
 
 .brand-name {
     font-size: 0.875rem;
     font-weight: 600;
     text-align: center;
-}
-
-/* Brand Logo Colors */
-.tesla-logo { 
-    color: var(--tesla-color); 
-    background: var(--tesla-bg);
-    border-color: var(--tesla-border);
-}
-
-.byd-logo { 
-    color: var(--byd-color); 
-    background: var(--byd-bg);
-    border-color: var(--byd-border);
-}
-
-.polestar-logo { 
-    color: var(--polestar-color); 
-    background: var(--polestar-bg);
-    border-color: var(--polestar-border);
-}
-
-.kia-logo { 
-    color: var(--kia-color); 
-    background: var(--kia-bg);
-    border-color: var(--kia-border);
+    color: rgba(255, 255, 255, 0.95);
 }
 
 /* Table Cells */
@@ -467,6 +445,8 @@ td {
     font-size: 0.875rem;
     line-height: 1.5;
     transition: all 0.2s ease;
+    text-align: center;
+    background: white;
 }
 
 td:first-child {
@@ -480,25 +460,21 @@ td:first-child {
     text-align: left;
 }
 
-/* Brand Column Styles */
+/* Modern Brand Column Styles - Subtle differentiation */
 .tesla-col {
-    background: var(--tesla-bg);
-    border-left: 4px solid var(--tesla-border);
+    border-left: 3px solid var(--tesla-border);
 }
 
 .byd-col {
-    background: var(--byd-bg);
-    border-left: 4px solid var(--byd-border);
+    border-left: 3px solid var(--byd-border);
 }
 
 .polestar-col {
-    background: var(--polestar-bg);
-    border-left: 4px solid var(--polestar-border);
+    border-left: 3px solid var(--polestar-border);
 }
 
 .kia-col {
-    background: var(--kia-bg);
-    border-left: 4px solid var(--kia-border);
+    border-left: 3px solid var(--kia-border);
 }
 
 /* Highlight Classes */
@@ -510,10 +486,12 @@ td:first-child {
 
 .best-value {
     background: linear-gradient(135deg, #d1fae5, #a7f3d0) !important;
-    border-left: 6px solid var(--accent-green) !important;
+    border-left: 4px solid var(--accent-green) !important;
     font-weight: 700;
     color: #065f46;
     position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
 }
 
 .best-value::after {
@@ -527,10 +505,12 @@ td:first-child {
 
 .highest-value {
     background: linear-gradient(135deg, #fef3c7, #fde68a) !important;
-    border-left: 6px solid var(--accent-orange) !important;
+    border-left: 4px solid var(--accent-orange) !important;
     font-weight: 700;
     color: #92400e;
     position: relative;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(234, 88, 12, 0.1);
 }
 
 .highest-value::after {
@@ -552,12 +532,15 @@ td:first-child {
     text-transform: uppercase;
     border-left: none !important;
     padding: 1.5rem 1rem;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.1);
 }
 
 /* Hover Effects */
-tr:hover td:not(:first-child) {
-    background: rgba(59, 130, 246, 0.05);
-    transform: scale(1.01);
+tr:hover td:not(:first-child):not(.category-header) {
+    background: linear-gradient(135deg, var(--primary-blue-light), rgba(59, 130, 246, 0.05)) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
 }
 
 tr:hover td:first-child {
